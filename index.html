@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrumHero - Vintage Rock Experience</title>
+    <!-- Tipografia Vintage: Montserrat & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET & VARIÁVEIS ANOS 70 */
+        :root {
+            --bg-principal: #121212;
+            --bg-card: #1c1917;
+            --bg-card-hover: #262626;
+            --texto-creme: #f4e8c1;
+            --texto-suave: #a8a29e;
+            --texto-mutado: #78716c;
+            --acento-ambar: #d97706;
+            --acento-ambar-brilho: #f59e0b;
+            --borda-suave: rgba(244, 232, 193, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-creme);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVEGAÇÃO */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 50px;
+            z-index: 100;
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.8) 70%, rgba(18, 18, 18, 0) 100%);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--texto-creme);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--texto-creme);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #ffffff;
+        }
+
+        .nav-menu a.active::after,
+        .nav-menu a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--texto-creme);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 50px;
+            background: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(28, 25, 23, 0.4) 0%, rgba(18, 18, 18, 0.88) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #d6c7a1;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .btn-vintage {
+            display: inline-block;
+            color: var(--texto-creme);
+            border: 1px solid var(--texto-creme);
+            padding: 12px 28px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-vintage:hover {
+            background-color: var(--acento-ambar);
+            border-color: var(--acento-ambar);
+            color: #121212;
+        }
+
+        .social-links {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 22px;
+        }
+
+        .social-links a {
+            color: var(--texto-creme);
+            font-size: 1.3rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+            opacity: 0.85;
+        }
+
+        .social-links a:hover {
+            color: var(--acento-ambar);
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+
+        /* ESTRUTURA DAS SEÇÕES */
+        .section-padding {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-badge {
+            color: var(--acento-ambar);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            color: var(--texto-creme);
+        }
+
+        .section-desc {
+            color: var(--texto-suave);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .divisor-linha {
+            width: 100%;
+            height: 1px;
+            background-color: var(--borda-suave);
+        }
+
+        /* SEÇÃO 1: SOBRE & HISTÓRIA */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-imagem {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--borda-suave);
+        }
+
+        .sobre-imagem img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: sepia(20%) contrast(105%);
+        }
+
+        /* SEÇÃO 2: MÚSICAS & AUDIÇÃO ANOS 70 */
+        .musicas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card-musica {
+            background-color: var(--bg-card);
+            border: 1px solid var(--borda-suave);
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card-musica:hover {
+            border-color: var(--acento-ambar);
+            background-color: var(--bg-card-hover);
+        }
+
+        .icone-disco {
+            font-size: 2rem;
+            color: var(--acento-ambar);
+        }
+
+        .info-musica h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--texto-creme);
+        }
+
+        .info-musica p {
+            font-size: 0.85rem;
+            color: var(--texto-suave);
+        }
+
+        /* SEÇÃO 3: GALERIA / FOTOS ANALÓGICAS */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .galeria-item {
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--borda-suave);
+            height: 220px;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) sepia(20%);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%) sepia(10%);
+        }
+
+        /* SEÇÃO 4: TOUR / SHOWS (TABELA VINTAGE) */
+        .tabela-tour {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-card);
+            border: 1px solid var(--borda-suave);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tabela-tour th, 
+        .tabela-tour td {
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--borda-suave);
+        }
+
+        .tabela-tour th {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--acento-ambar);
+            text-transform: uppercase;
+        }
+
+        .tabela-tour td {
+            font-size: 0.9rem;
+            color: var(--texto-creme);
+        }
+
+        .tabela-tour tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* SEÇÃO 5: CONTATO & NEWSLETTER */
+        .contato-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--texto-suave);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .form-controle {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--borda-suave);
+            border-radius: 4px;
+            color: var(--texto-creme);
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .form-controle:focus {
+            outline: none;
+            border-color: var(--acento-ambar);
+        }
+
+        textarea.form-controle {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* RODAPÉ */
+        .site-footer {
+            border-top: 1px solid var(--borda-suave);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--texto-mutado);
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGAÇÃO COMPLETA -->
+    <header class="site-header">
+        <a href="index.html" class="logo">DRUM HERO</a>
+        <ul class="nav-menu">
+            <li><a href="#home" class="active">HOME</a></li>
+            <li><a href="#sobre">SOBRE</a></li>
+            <li><a href="#musica">MÚSICA</a></li>
+            <li><a href="#galeria">GALERIA</a></li>
+            <li><a href="#tour">TOUR</a></li>
+            <li><a href="Site_Jogo-Bateria-Reflexo/jogo.html">JOGO</a></li>
+            <li><a href="#contato">CONTATO</a></li>
+        </ul>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">EXPERIÊNCIA CLÁSSICA DO ROCK</h1>
+            <p class="hero-subtitle">Mergulhe no ritmo das baquetas e desafie seus reflexos com a essência analógica dos anos 70.</p>
+            <a href="Site_Jogo-Bateria-Reflexo/jogo.html" class="btn-vintage">JOGAR AGORA 🥁</a>
+        </div>
+
+        <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" title="Spotify"><i class="fab fa-spotify"></i></a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 1: SOBRE O PROJETO -->
+    <section id="sobre" class="section-padding">
+        <div class="sobre-grid">
+            <div>
+                <span class="section-badge">DESAFIO VINTAGE</span>
+                <h2 class="section-title">A Pura Essência do Ritmo</h2>
+                <p class="section-desc" style="margin-bottom: 20px;">
+                    O DrumHero foi pensado para quem busca se reconectar com a simplicidade e a energia do Rock and Roll clássico.
+                    Sem ruídos excessivos ou estimulação frenética de cores neon, oferecemos uma atmosfera acolhedora onde sua precisão na bateria é o centro de tudo.
+                </p>
+                <a href="Site_Jogo-Bateria-Reflexo/jogo.html" class="btn-vintage">DESAFIO DAS 20 NOTAS</a>
+            </div>
+            <div class="sobre-imagem">
+                <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=800&auto=format&fit=crop" alt="Bateria Anos 70">
+            </div>
+        </div>
+    </section>
+
+    <div class="divisor-linha"></div>
+
+    <!-- SEÇÃO 2: MÚSICAS & ÁUDIO -->
+    <section id="musica" class="section-padding">
+        <div class="section-header">
+            <span class="section-badge">DISCOGRAFIA ANALÓGICA</span>
+            <h2 class="section-title">Grandes Faixas & Ritmos</h2>
+            <p class="section-desc">Seleção de clássicos gravados na era de ouro dos estúdios analógicos.</p>
+        </div>
+
+        <div class="musicas-grid">
+            <div class="card-musica">
+                <i class="fas fa-compact-disc icone-disco"></i>
+                <div class="info-musica">
+                    <h4>Groove Clássico de 74</h4>
+                    <p>Faixa de treino • Tempo: 120 BPM</p>
+                </div>
+            </div>
+            <div class="card-musica">
+                <i class="fas fa-compact-disc icone-disco"></i>
+                <div class="info-musica">
+                    <h4>Viradas da Era de Ouro</h4>
+                    <p>Faixa avançada • Tempo: 140 BPM</p>
+                </div>
+            </div>
+            <div class="card-musica">
+                <i class="fas fa-compact-disc icone-disco"></i>
+                <div class="info-musica">
+                    <h4>Solos em Fita Magnética</h4>
+                    <p>Modo Desafio • Tempo: 160 BPM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divisor-linha"></div>
+
+    <!-- SEÇÃO 3: GALERIA -->
+    <section id="galeria" class="section-padding">
+        <div class="section-header">
+            <span class="section-badge">MEMÓRIAS</span>
+            <h2 class="section-title">Galeria de Palco</h2>
+        </div>
+
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=600&auto=format&fit=crop" alt="Show Ao Vivo">
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600&auto=format&fit=crop" alt="Microfone e Palco">
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?q=80&w=600&auto=format&fit=crop" alt="Guitarra Vintage">
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=600&auto=format&fit=crop" alt="Luzes de Show">
+            </div>
+        </div>
+    </section>
+
+    <div class="divisor-linha"></div>
+
+    <!-- SEÇÃO 4: TOUR / SHOWS -->
+    <section id="tour" class="section-padding">
+        <div class="section-header">
+            <span class="section-badge">AGENDA</span>
+            <h2 class="section-title">Próximas Apresentações</h2>
+        </div>
+
+        <table class="tabela-tour">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Cidade / Local</th>
+                    <th>Evento</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>15 OUT 2026</td>
+                    <td>São Paulo, SP - Bourbon Street</td>
+                    <td>Sessão Clássica de Bateria</td>
+                    <td><span style="color: var(--acento-ambar);">INGRESSOS</span></td>
+                </tr>
+                <tr>
+                    <td>22 OUT 2026</td>
+                    <td>Rio de Janeiro, RJ - Circo Voador</td>
+                    <td>Encontro Vintage Rock</td>
+                    <td><span style="color: var(--acento-ambar);">INGRESSOS</span></td>
+                </tr>
+                <tr>
+                    <td>05 NOV 2026</td>
+                    <td>Curitiba, PR - Ópera de Arame</td>
+                    <td>Festival Bateria & Reflexos</td>
+                    <td><span style="color: var(--acento-ambar);">INGRESSOS</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="divisor-linha"></div>
+
+    <!-- SEÇÃO 5: CONTATO -->
+    <section id="contato" class="section-padding">
+        <div class="section-header">
+            <span class="section-badge">MANTENHA CONTATO</span>
+            <h2 class="section-title">Fale Conosco</h2>
+            <p class="section-desc">Dúvidas, sugestões ou interesse em parcerias.</p>
+        </div>
+
+        <div class="contato-container">
+            <form action="#" method="post" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+                <div class="form-grupo">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" class="form-controle" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" class="form-controle" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" class="form-controle" required></textarea>
+                </div>
+                <button type="submit" class="btn-vintage" style="width: 100%;">ENVIAR MENSAGEM</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        <p>&copy; 2026 DRUM HERO - VINTAGE ROCK EXPERIENCE. TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+</body>
+</html>
