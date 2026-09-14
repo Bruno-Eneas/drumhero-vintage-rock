@@ -364,3 +364,67 @@ body {
     font-size: 0.85rem;
     background-color: #0c0a09;
 }
+/* ==========================================================================
+   7. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* TABLET E TELAS INTERMEDIÁRIAS (até 1024px) */
+@media screen and (max-width: 1024px) {
+    .section-padding {
+        padding: 70px 5%;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cards-grid, .tecnicas-grid {
+        gap: 20px;
+    }
+}
+
+/* SMARTPHONES E TELAS PEQUENAS (até 768px) */
+@media screen and (max-width: 768px) {
+    /* Ajuste do Cabeçalho para Mobile */
+    .main-header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 5%;
+        gap: 12px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+
+    /* Ajuste da Seção Inicial (Hero) */
+    .hero-section {
+        padding: 140px 20px 40px; /* Compensa o cabeçalho que ficou mais alto */
+    }
+
+    .hero-botoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-botoes .btn-vintage {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajustes Gerais de Container */
+    .contato-container {
+        padding: 20px;
+    }
+    
+    .tecnica-item {
+        padding: 20px 15px;
+    }
+}
