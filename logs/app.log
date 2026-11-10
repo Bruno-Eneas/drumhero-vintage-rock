@@ -1,0 +1,10 @@
+[2026-11-06 17:50:27] [LOGIN_FALHA] Tentativa de login falhou para o email admin@drumhero.com.
+[2026-11-06 17:50:36] [LOGIN_FALHA] Tentativa de login falhou para o email admin@drumhero.com.
+[2026-11-06 17:50:52] [LOGIN_SUCESSO] O usuario admin@drumhero.com iniciou sessao.
+[2026-11-07 17:33:03] [FALHA_SEGURANCA] Tentativa de CSRF bloqueada no login.
+[2026-11-07 17:41:26] [FALHA_SEGURANCA] Tentativa de CSRF bloqueada no login.
+[2026-11-07 17:41:28] [FALHA_SEGURANCA] Tentativa de CSRF bloqueada no login.
+[2026-11-07 17:41:31] [FALHA_SEGURANCA] Tentativa de CSRF bloqueada no login.
+[2026-11-07 17:41:38] [FALHA_SEGURANCA] Tentativa de CSRF bloqueada no login.
+[2026-11-07 17:42:07] [LOGIN_FALHA] Tentativa de login falhou para o email admin@drumhero.com.
+[2026-11-07 17:42:19] [LOGIN_SUCESSO] O usuario admin@drumhero.com iniciou sessao.
